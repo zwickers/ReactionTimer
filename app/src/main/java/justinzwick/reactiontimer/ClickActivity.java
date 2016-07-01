@@ -18,18 +18,21 @@ public class ClickActivity extends AppCompatActivity {
         setContentView(R.layout.activity_click);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.greenLayout);
 
-
+        final long currentTime = System.currentTimeMillis();
         mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(ClickActivity.this, ResultsActivity.class);
 
-
                 startActivity(intent);
             }
         });
     }
 
+    private long countTime(long startTime) { //returns the elapsed time, which is endTime - startTime
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
 
 }
