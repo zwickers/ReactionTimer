@@ -18,13 +18,13 @@ public class ClickActivity extends AppCompatActivity {
         setContentView(R.layout.activity_click);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.greenLayout);
 
-        final long currentTime = System.currentTimeMillis();
+        final long initialTime = System.currentTimeMillis();
         mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                long elapsedTime = ClickActivity.this.countTime(initialTime);
                 Intent intent = new Intent(ClickActivity.this, ResultsActivity.class);
-
+                intent.putExtra(ELAPSED_TIME_KEY, elapsedTime);
                 startActivity(intent);
             }
         });
