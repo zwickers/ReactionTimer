@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ReactionTimer</string>
+    <string name="title_activity_wait">WaitActivity</string>
+</resources>
