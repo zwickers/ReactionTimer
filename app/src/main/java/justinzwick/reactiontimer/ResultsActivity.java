@@ -28,8 +28,20 @@ public class ResultsActivity extends AppCompatActivity {
         Intent pastIntent = getIntent();
         long milliseconds = pastIntent.getLongExtra(ELAPSED_TIME_KEY,0);
 
+        //divides total time by attempts to get average time
+        int attempts = Prefs.getInt(StartingActivity.ATTEMPTS_KEY,0);
+        int totalTime = (int) Prefs.getLong(StartingActivity.TOTAL_TIME_KEY,0);
+        int averageTime = (int) totalTime/attempts;
+
         mMillisecondTextView.setText(milliseconds + " milliseconds");
 
+        mRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ResultsActivity.this, WaitActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
