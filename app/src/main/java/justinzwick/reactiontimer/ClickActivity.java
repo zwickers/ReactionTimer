@@ -31,6 +31,11 @@ public class ClickActivity extends AppCompatActivity {
                 long elapsedTime = ClickActivity.this.countTime(initialTime);
                 Intent intent = new Intent(ClickActivity.this, ResultsActivity.class);
                 intent.putExtra(ELAPSED_TIME_KEY, elapsedTime);
+
+                long timeSoFar = Prefs.getLong(StartingActivity.TOTAL_TIME_KEY,0);
+                Prefs.putLong(StartingActivity.TOTAL_TIME_KEY,timeSoFar+elapsedTime);
+
+
                 startActivity(intent);
             }
         });
