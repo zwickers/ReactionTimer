@@ -33,7 +33,11 @@ public class ResultsActivity extends AppCompatActivity {
         int totalTime = (int) Prefs.getLong(StartingActivity.TOTAL_TIME_KEY,0);
         int averageTime = (int) totalTime/attempts;
 
+
+        //display milliseconds, average time, and attempts #
         mMillisecondTextView.setText(milliseconds + " milliseconds");
+        mAverageMillisecondsLabel.setText("Average | "+averageTime+" ms");
+        mAttemptsLabel.setText("Tries | "+attempts);
 
         mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
