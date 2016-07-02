@@ -18,6 +18,12 @@ public class ClickActivity extends AppCompatActivity {
         setContentView(R.layout.activity_click);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.greenLayout);
 
+        ///-----increments the number of attempts by 1-----///
+        int prevAttempts = Prefs.getInt(StartingActivity.ATTEMPTS_KEY,0);
+        int currentAttempts = prevAttempts+1;
+        Prefs.putInt(StartingActivity.ATTEMPTS_KEY,currentAttempts);
+
+
         final long initialTime = System.currentTimeMillis();
         mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
